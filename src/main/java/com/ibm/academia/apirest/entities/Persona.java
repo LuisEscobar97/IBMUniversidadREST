@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -13,14 +14,27 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @ToString
+@Entity
+@Table(name = "personas",schema = "universidad")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Persona implements Serializable
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private String apellido;
     private String dni;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "codigoPostal", column = @Column(name = "codigo_postal")),
+            @AttributeOverride(name = "departamento", column = @Column(name = "departamento"))
+    })
     private Direccion direccion;
+    @Column(name = "fecha_alta")
     private Date fechaAlta;
+    @Column(name = "fecha_modificacion")
     private Date fechaModificacion;
 
     public Persona(Integer id, String nombre, String apellido, String dni, Direccion direccion) {
@@ -42,5 +56,15 @@ public abstract class Persona implements Serializable
     @Override
     public int hashCode() {
         return Objects.hash(id, dni);
+    }
+
+    @PrePersist
+    private void antesPersistir(){
+        this.fechaAlta=new Date();
+    }
+
+    @PreUpdate
+    private void antesActualizar(){
+        this.fechaModificacion=new Date();
     }
 }
