@@ -30,4 +30,11 @@ public class Profesor extends Persona{
         super(id, nombre, apellido, dni, direccion);
         this.sueldo=sueldo;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"\tProfesor{" +
+                "sueldo=" + sueldo +
+                '}';
+    }
 }

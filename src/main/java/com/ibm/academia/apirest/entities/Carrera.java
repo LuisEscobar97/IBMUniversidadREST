@@ -14,7 +14,6 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
-@ToString
 @Entity
 @Table(name="carreras",schema = "universidad")
 public class Carrera implements Serializable {
@@ -31,9 +30,9 @@ public class Carrera implements Serializable {
     private Date fechaAlta;
     @Column(name = "fecha_modificacion")
     private Date fechaModificacion;
-    @OneToMany(mappedBy = "carrera")
+    @OneToMany(mappedBy = "carrera",fetch = FetchType.LAZY)
     private Set<Alumno> alumnos;
-    @ManyToMany(mappedBy = "carreras")
+    @ManyToMany(mappedBy = "carreras", fetch = FetchType.LAZY)
     private Set<Profesor>profesores;
 
     public Carrera(Integer id, String nombre, Integer cantidadMaterias, Integer cantidadAnios) {
@@ -64,5 +63,17 @@ public class Carrera implements Serializable {
     @PreUpdate
     private void antesActualizar(){
         this.fechaModificacion=new Date();
+    }
+
+    @Override
+    public String toString() {
+        return "Carrera{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", cantidadMaterias=" + cantidadMaterias +
+                ", cantidadAnios=" + cantidadAnios +
+                ", fechaAlta=" + fechaAlta +
+                ", fechaModificacion=" + fechaModificacion +
+                '}';
     }
 }

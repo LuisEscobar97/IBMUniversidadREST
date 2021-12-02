@@ -37,7 +37,7 @@ public class Pabellon implements Serializable {
     private Date fechaModificacion;
     //lazy es para que solo traiga la relacion estipulada y todoas los objetos relacionados a
     //a la secundaria
-    //set es una nlista que no permite que se dupliquen objetos
+    //set es una lista que no permite que se dupliquen objetos
     @OneToMany(mappedBy = "pabellon",fetch = FetchType.LAZY)
     private Set<Aula> aulas;
 
