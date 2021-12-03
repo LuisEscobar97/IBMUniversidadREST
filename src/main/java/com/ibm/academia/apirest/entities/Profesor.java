@@ -20,7 +20,7 @@ public class Profesor extends Persona{
     private BigDecimal sueldo;
 
     @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinTable(name = "profesor_carrera",
+    @JoinTable(name = "profesor_carrera", schema = "universidad",
             joinColumns =@JoinColumn(name = "profesor_id")
             ,inverseJoinColumns = @JoinColumn(name = "carrera_id"))
     private Set<Carrera>carreras;

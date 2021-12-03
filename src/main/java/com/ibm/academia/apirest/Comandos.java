@@ -1,10 +1,14 @@
 package com.ibm.academia.apirest;
 
 import com.ibm.academia.apirest.entities.Carrera;
+import com.ibm.academia.apirest.entities.Empleado;
 import com.ibm.academia.apirest.entities.Persona;
 import com.ibm.academia.apirest.entities.Profesor;
+import com.ibm.academia.apirest.enums.TipoEmpleado;
 import com.ibm.academia.apirest.services.CarreraDAO;
+import com.ibm.academia.apirest.services.EmpleadoDAO;
 import com.ibm.academia.apirest.services.ProfesorDAO;
+import jdk.dynalink.linker.LinkerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,6 +23,10 @@ public class Comandos implements CommandLineRunner {
 
     @Autowired
     private ProfesorDAO profesorDAO;
+
+    @Autowired
+    private EmpleadoDAO empleadoDAO;
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -44,8 +52,9 @@ public class Comandos implements CommandLineRunner {
         carreraDao.guardar(licYoga);
         carreraDao.guardar(licRecursos);*/
 
-        /*List<Carrera> carreras = (List<Carrera>)carreraDao.findCarrerasByNombreContains("Sistemas");
-        carreras.forEach(System.out::println);*/
+        //List<Carrera> carreras = (List<Carrera>)carreraDao.findCarrerasByNombreContains("Sistemas");
+        //Set<Carrera>listaCarreras= new HashSet<Carrera>(carreras);
+        //carreras.forEach(System.out::println);
 
         /*Persona profesorMauro=new Profesor(null,"Mauro","Sanchez Sanchez","202535",null,new BigDecimal(1500));
         Persona guardada=profesorDAO.guardar(profesorMauro);
@@ -55,7 +64,21 @@ public class Comandos implements CommandLineRunner {
         Persona profesorBenjamin=new Profesor(null,"Benjamin","Gnzalez","202599",null,new BigDecimal(2800));
         profesorDAO.guardar(profesorBenjamin);*/
 
-        System.out.println(profesorDAO.buscarPorID(2).get().toString());
+        //Profesor profesoraBany =(Profesor) profesorDAO.buscarPorID(3).get();
+        //System.out.println(profesoraBany.toString());
+
+        //profesoraBany.setCarreras(listaCarreras);
+        //profesorDAO.guardar(profesoraBany);
+
+        /*Persona empleado1= new Empleado(null,"Angel","valdes","00002",null,new BigDecimal(10000),TipoEmpleado.ADMINISTRATIVO);
+        Persona  empleadoGuardado=empleadoDAO.guardar(empleado1);
+        System.out.println(((Empleado)empleadoGuardado).toString());*/
+
+        List<Persona> profesores = (List<Persona>)profesorDAO.buscarPorfesoresesPorNombreCarrera("Licenciatura en Sistemas");
+        profesores.forEach(System.out::println);
+
+
+
 
     }
 }

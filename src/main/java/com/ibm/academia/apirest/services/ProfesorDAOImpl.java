@@ -24,7 +24,7 @@ public class ProfesorDAOImpl extends PersonaDAOImpl implements ProfesorDAO{
     @Override
 
     public Iterable<Persona> buscarPorfesoresesPorNombreCarrera(String nombre) {
-        return null;//((ProfesorRepository)repository).buscarPorfesoresesPorNombreCarrera(nombre);
+        return ((ProfesorRepository)repository).buscarPorfesoresesPorNombreCarrera(nombre);
     }
 
 
