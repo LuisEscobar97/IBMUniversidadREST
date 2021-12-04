@@ -12,7 +12,6 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
 @Table(name = "pabellones",schema = "universidad")
 public class Pabellon implements Serializable {
@@ -72,5 +71,14 @@ public class Pabellon implements Serializable {
     @PreUpdate
     private void antesActualizar(){
         this.fechaModificacion=new Date();
+    }
+
+    @Override
+    public String toString() {
+        return "Pabellon{" +
+                "id=" + id +
+                ", metrosCuaddrados=" + metrosCuaddrados +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }

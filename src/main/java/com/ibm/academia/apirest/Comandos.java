@@ -1,18 +1,15 @@
 package com.ibm.academia.apirest;
 
-import com.ibm.academia.apirest.entities.Carrera;
-import com.ibm.academia.apirest.entities.Empleado;
-import com.ibm.academia.apirest.entities.Persona;
-import com.ibm.academia.apirest.entities.Profesor;
+import com.ibm.academia.apirest.entities.*;
+import com.ibm.academia.apirest.enums.Pizarron;
 import com.ibm.academia.apirest.enums.TipoEmpleado;
-import com.ibm.academia.apirest.services.CarreraDAO;
-import com.ibm.academia.apirest.services.EmpleadoDAO;
-import com.ibm.academia.apirest.services.ProfesorDAO;
+import com.ibm.academia.apirest.services.*;
 import jdk.dynalink.linker.LinkerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -26,6 +23,12 @@ public class Comandos implements CommandLineRunner {
 
     @Autowired
     private EmpleadoDAO empleadoDAO;
+
+    @Autowired
+    private AulaDAO aulaDAO;
+
+    @Autowired
+    private PabellonDAO pabellonDAO;
 
 
     @Override
@@ -70,14 +73,41 @@ public class Comandos implements CommandLineRunner {
         //profesoraBany.setCarreras(listaCarreras);
         //profesorDAO.guardar(profesoraBany);
 
-        /*Persona empleado1= new Empleado(null,"Angel","valdes","00002",null,new BigDecimal(10000),TipoEmpleado.ADMINISTRATIVO);
-        Persona  empleadoGuardado=empleadoDAO.guardar(empleado1);
-        System.out.println(((Empleado)empleadoGuardado).toString());*/
+        /*Persona empleado1= new Empleado(null,"Shair","valdes","00003",null,new BigDecimal(12000),TipoEmpleado.ADMINISTRATIVO);
 
-        List<Persona> profesores = (List<Persona>)profesorDAO.buscarPorfesoresesPorNombreCarrera("Licenciatura en Sistemas");
-        profesores.forEach(System.out::println);
+        Persona empleado2= new Empleado(null,"Manuel","Ortega","00004",null,new BigDecimal(10000),TipoEmpleado.MANTENIMIENTO);
 
+        Persona empleado3= new Empleado(null,"Jose","Ortega","00005",null,new BigDecimal(9000),TipoEmpleado.ADMINISTRATIVO);
+        empleadoDAO.guardar(empleado1);
+        empleadoDAO.guardar(empleado2);
+        empleadoDAO.guardar(empleado3);/*
 
+        //System.out.println(((Empleado)empleadoGuardado).toString());
+
+        /*List<Persona> profesores = (List<Persona>)profesorDAO.buscarPorfesoresesPorNombreCarrera("Licenciatura en Sistemas");
+        profesores.forEach(System.out::println);*/
+
+        //List<Persona> empleados=(List<Persona>)empleadoDAO.findEmpleadoByTipoEmpleado(TipoEmpleado.MANTENIMIENTO);
+        //empleados.forEach(System.out::println);
+
+       /* List<Carrera> carreras =(List<Carrera>) carreraDao.buscarCarrerasPorProfesorNombreYApellido("Mauro","Sanchez Sanchez");
+        carreras.forEach(System.out::println);*/
+        /*Aula aula1= new Aula(null,2,"2x4",50, Pizarron.PIZARRA_BLANCA);
+        //Aula aula2= new Aula(null,3,"4x4",35, Pizarron.PIZARRA_TIZA);
+        Aula aula3= new Aula(null,1,"4x4",40, Pizarron.PIZARRA_TIZA);
+        Aula aula4= new Aula(null,4,"6x6",50, Pizarron.PIZARRA_BLANCA);
+        Aula aula6= new Aula(null,5,"6x8",25, Pizarron.PIZARRA_BLANCA);
+        Aula aula7= new Aula(null,6,"6x8",30, Pizarron.PIZARRA_TIZA);
+
+        aulaDAO.guardar(aula2);
+        aulaDAO.guardar(aula3);
+        aulaDAO.guardar(aula4);
+        aulaDAO.guardar(aula6);
+        aulaDAO.guardar(aula7);
+        //System.out.println(aulaDAO.guardar(aula1).toString());*/
+
+        //Pabellon pabellon1=new Pabellon(null,27.0,"Pabellon 6",new Direccion("calle","1","52000","NA","1","localidad 3"));
+        //System.out.println(pabellonDAO.guardar(pabellon1).toString());
 
 
     }

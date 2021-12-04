@@ -29,7 +29,7 @@ public class Aula implements Serializable {
 
     @Column(name = "cantidad_pupitres")
     private Integer cantidadPupitres;
-    @Column(name = "topo_pizarron")
+    @Column(name = "tipo_pizarron")
     @Enumerated(EnumType.STRING)
     private Pizarron pizarron;
 

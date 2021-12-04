@@ -1,6 +1,7 @@
 package com.ibm.academia.apirest.services;
 
 import com.ibm.academia.apirest.entities.Persona;
+import com.ibm.academia.apirest.enums.TipoEmpleado;
 import com.ibm.academia.apirest.respositories.EmpleadoRepository;
 import com.ibm.academia.apirest.respositories.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,8 @@ public class EmpleadoDAOImpl extends PersonaDAOImpl implements EmpleadoDAO {
     }
 
 
-
+    @Override
+    public Iterable<Persona> findEmpleadoByTipoEmpleado(TipoEmpleado tipoEmpleado) {
+        return ((EmpleadoRepository)repository).findEmpleadoByTipoEmpleado(tipoEmpleado);
+    }
 }

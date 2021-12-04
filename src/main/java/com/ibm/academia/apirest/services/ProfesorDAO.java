@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface ProfesorDAO extends PersonaDAO {
 
 
-    public Iterable<Persona> buscarPorfesoresesPorNombreCarrera(@Param("parametroCarrera") String nombre);
+    public Iterable<Persona> findPorfesoresesByNombreCarrera(String nombre);
 
 }
