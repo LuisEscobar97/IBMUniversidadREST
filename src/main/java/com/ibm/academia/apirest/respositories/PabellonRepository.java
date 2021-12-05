@@ -5,4 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface PabellonRepository extends CrudRepository<Pabellon,Integer> {
 
+    public Iterable<Pabellon>findByDireccionLocalidString(String localidad);
+
+    public Iterable<Pabellon> findByNombre(String nombre);
+
 }

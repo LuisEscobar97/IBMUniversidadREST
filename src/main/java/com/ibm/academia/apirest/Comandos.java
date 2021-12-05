@@ -109,6 +109,22 @@ public class Comandos implements CommandLineRunner {
         //Pabellon pabellon1=new Pabellon(null,27.0,"Pabellon 6",new Direccion("calle","1","52000","NA","1","localidad 3"));
         //System.out.println(pabellonDAO.guardar(pabellon1).toString());
 
+        //Aula aulaExtarida= aulaDAO.buscarPorID(6).get();
+
+        //Pabellon pabellonExtaido=pabellonDAO.buscarPorID(3).get();
+
+        //aulaExtarida.setPabellon(pabellonExtaido);
+        //aulaDAO.guardar(aulaExtarida);
+
+        /*List<Aula>aulas= (List<Aula>) aulaDAO.findAulaByPizarron(Pizarron.PIZARRA_TIZA);
+        List<Aula>aulas= (List<Aula>) aulaDAO.findByNumeroAula(6);
+        List<Aula>aulas= (List<Aula>) aulaDAO.findByPabellon("Pabellon 2");
+        aulas.forEach(System.out::println);
+        */
+
+        /*List<Pabellon>pabellones= (List<Pabellon>) pabellonDAO.findByLocalidString("localidad 3");
+        List<Pabellon>pabellones= (List<Pabellon>) pabellonDAO.findByNombre("Pabellon 4");
+        pabellones.forEach(System.out::println);*/
 
     }
 }

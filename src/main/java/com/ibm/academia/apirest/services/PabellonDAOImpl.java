@@ -8,6 +8,7 @@ import java.util.Optional;
 
 @Service
 public class PabellonDAOImpl extends GenericoDAOImpl<Pabellon, PabellonRepository> implements PabellonDAO{
+
     public PabellonDAOImpl(PabellonRepository repository) {
         super(repository);
     }
@@ -30,5 +31,15 @@ public class PabellonDAOImpl extends GenericoDAOImpl<Pabellon, PabellonRepositor
     @Override
     public void eliminarPorId(Integer id) {
     repository.deleteById(id);
+    }
+
+    @Override
+    public Iterable<Pabellon> findByLocalidString(String localidad) {
+        return repository.findByDireccionLocalidString(localidad);
+    }
+
+    @Override
+    public Iterable<Pabellon> findByNombre(String nombre) {
+        return repository.findByNombre(nombre);
     }
 }

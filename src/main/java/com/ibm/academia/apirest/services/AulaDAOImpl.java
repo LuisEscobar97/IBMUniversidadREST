@@ -22,6 +22,17 @@ public class AulaDAOImpl extends GenericoDAOImpl<Aula, AulaRepository> implement
     }
 
     @Override
+    public Iterable<Aula> findByPabellon(String pabellon) {
+        return repository.findByPabellonNombre(pabellon);
+    }
+
+
+    @Override
+    public Iterable<Aula> findByNumeroAula(Integer numeroAula) {
+        return repository.findByNumeroAula(numeroAula);
+    }
+
+    @Override
     public Optional<Aula> buscarPorID(Integer id) {
         return repository.findById(id);
     }
