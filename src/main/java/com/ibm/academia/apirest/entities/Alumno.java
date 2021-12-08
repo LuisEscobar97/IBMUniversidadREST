@@ -1,5 +1,6 @@
 package com.ibm.academia.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 public class Alumno extends Persona {
 
    @ManyToOne(optional = true,cascade = {CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.LAZY)
+   @JsonIgnoreProperties({"hibernateLazyInitializer", "alumnos"})
     private Carrera carrera;
     public Alumno(Integer id, String nombre, String apellido, String dni, Direccion direccion) {
         super(id, nombre, apellido, dni, direccion);

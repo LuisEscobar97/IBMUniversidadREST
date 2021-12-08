@@ -59,7 +59,7 @@ public class Comandos implements CommandLineRunner {
         //Set<Carrera>listaCarreras= new HashSet<Carrera>(carreras);
         //carreras.forEach(System.out::println);
 
-        /*Persona profesorMauro=new Profesor(null,"Mauro","Sanchez Sanchez","202535",null,new BigDecimal(1500));
+        /*Persona profesorMauro=new Profesor(null,"Mauro","imple","202535",null,new BigDecimal(1500));
         Persona guardada=profesorDAO.guardar(profesorMauro);
         System.out.println(((Profesor)guardada).toString());
         Persona profesoraBany=new Profesor(null,"Bany","Hernandez Cadrdona","202589",null,new BigDecimal(1800));
