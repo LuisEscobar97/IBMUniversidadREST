@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -17,6 +19,8 @@ import java.util.Set;
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Profesor extends Persona{
 
+    @NotNull(message = "No puede ser nulo")
+    @Positive(message = "El valor debe ser mayor a 0")
     @Column(name = "sueldo")
     private BigDecimal sueldo;
 

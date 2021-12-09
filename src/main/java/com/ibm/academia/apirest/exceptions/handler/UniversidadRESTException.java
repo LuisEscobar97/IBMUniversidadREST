@@ -1,5 +1,6 @@
 package com.ibm.academia.apirest.exceptions.handler;
 
+import com.ibm.academia.apirest.exceptions.BadClassException;
 import com.ibm.academia.apirest.exceptions.BadRequestException;
 import com.ibm.academia.apirest.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,14 @@ public class UniversidadRESTException {
         Map<String, Object> respuesta = new HashMap<String, Object>();
         respuesta.put("error", exception.getMessage());
         return new ResponseEntity<>(respuesta, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(value = BadClassException.class)
+    public ResponseEntity<?> noCoincideTipoPersona(BadClassException exception)
+    {
+        Map<String, Object> respuesta = new HashMap<String, Object>();
+        respuesta.put("error", exception.getMessage());
+        return new ResponseEntity<>(respuesta, HttpStatus.CONFLICT);
     }
 
 }

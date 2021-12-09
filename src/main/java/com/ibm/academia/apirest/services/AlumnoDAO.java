@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface AlumnoDAO extends PersonaDAO{
 
     public Iterable<Persona> buscarAlumnoPorNombreCarrera(String nombre);
+    public Persona actualizar(Persona alumnoEncontrado, Persona alumno);
+    public Persona asociarCarreraAlumno(Persona alumno, Carrera carrera);
 }

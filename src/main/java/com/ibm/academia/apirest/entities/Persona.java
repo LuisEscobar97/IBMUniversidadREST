@@ -8,6 +8,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -34,8 +36,14 @@ public abstract class Persona implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotNull(message = "No puede ser nulo")
+    @NotEmpty(message = "No puede estar vacio")
     private String nombre;
+    @NotNull(message = "No puede ser nulo")
+    @NotEmpty(message = "No puede estar vacio")
     private String apellido;
+    @NotNull(message = "No puede ser nulo")
+    @NotEmpty(message = "No puede estar vacio")
     private String dni;
 
     @Embedded
