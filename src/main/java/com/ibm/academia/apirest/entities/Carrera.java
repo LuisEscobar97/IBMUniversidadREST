@@ -21,6 +21,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name="carreras",schema = "universidad")
+//@Table(name = "carreras",schema = "test")
 public class Carrera implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

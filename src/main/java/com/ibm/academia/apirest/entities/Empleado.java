@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @Getter
 @Entity
 @Table(name = "empleados",schema = "universidad")
+//@Table(name = "empleados",schema = "test")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Empleado extends Persona{
     @Column(name = "sueldo")

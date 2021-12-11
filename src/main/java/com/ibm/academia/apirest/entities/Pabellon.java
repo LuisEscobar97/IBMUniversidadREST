@@ -14,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "pabellones",schema = "universidad")
+//@Table(name = "pabellones",schema = "test")
 public class Pabellon implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

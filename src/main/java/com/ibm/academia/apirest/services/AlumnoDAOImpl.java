@@ -3,14 +3,12 @@ package com.ibm.academia.apirest.services;
 import com.ibm.academia.apirest.entities.Alumno;
 import com.ibm.academia.apirest.entities.Carrera;
 import com.ibm.academia.apirest.entities.Persona;
-import com.ibm.academia.apirest.respositories.AlumnoReposiotry;
+import com.ibm.academia.apirest.respositories.AlumnoRepository;
 import com.ibm.academia.apirest.respositories.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @Service
 public class AlumnoDAOImpl extends PersonaDAOImpl implements AlumnoDAO{
@@ -23,7 +21,7 @@ public class AlumnoDAOImpl extends PersonaDAOImpl implements AlumnoDAO{
     @Override
     @Transactional(readOnly = true)
     public Iterable<Persona> buscarAlumnoPorNombreCarrera(String nombre) {
-        return ((AlumnoReposiotry)repository).buscarAlumnoPorNombreCarrera(nombre);
+        return ((AlumnoRepository)repository).buscarAlumnoPorNombreCarrera(nombre);
     }
 
     @Override

@@ -17,6 +17,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "aulas",schema = "universidad")
+//Table(name = "aulas",schema = "test")
 public class Aula implements Serializable {
 
     @Id

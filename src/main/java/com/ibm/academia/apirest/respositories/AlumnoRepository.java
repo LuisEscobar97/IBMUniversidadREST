@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository("respositorioAlumnos")
-public interface AlumnoReposiotry extends PersonaRepository
+public interface AlumnoRepository extends PersonaRepository
 {
     @Query("select a from Alumno a join fetch a.carrera c where c.nombre = :parametroCarrera")
     public Iterable<Persona> buscarAlumnoPorNombreCarrera(@Param("parametroCarrera") String nombre);

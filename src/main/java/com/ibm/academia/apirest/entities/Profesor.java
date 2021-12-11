@@ -16,6 +16,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "profesores",schema = "universidad")
+//@Table(name = "profesores",schema = "test")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Profesor extends Persona{
 

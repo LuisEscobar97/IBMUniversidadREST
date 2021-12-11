@@ -3,15 +3,11 @@ package com.ibm.academia.apirest.services;
 import com.ibm.academia.apirest.entities.Carrera;
 import com.ibm.academia.apirest.entities.Persona;
 import com.ibm.academia.apirest.entities.Profesor;
-import com.ibm.academia.apirest.respositories.AlumnoReposiotry;
 import com.ibm.academia.apirest.respositories.PersonaRepository;
 import com.ibm.academia.apirest.respositories.ProfesorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
 import java.util.Set;
 
 @Service

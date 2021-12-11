@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "alumnos",schema = "universidad")
+//@Table(name = "alumnos",schema = "test")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Alumno extends Persona {
 
